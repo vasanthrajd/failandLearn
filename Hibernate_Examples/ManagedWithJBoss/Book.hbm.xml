@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.training.domain">
+  <class name="Book" table="Book_Table2">
+  <id name="bookNumber" type="integer" column="bookNumber">
+   <generator class="increment"></generator>
+  </id>
+  <property name="bookName" type="string" column="bookName"></property>
+  <property name="author" type="string" ></property>
+  <property name="price" type="double" column="pricePerUnit"></property>
+  
+  </class>
+</hibernate-mapping>

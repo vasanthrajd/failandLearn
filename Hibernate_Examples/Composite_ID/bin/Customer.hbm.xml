@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.training">
+  <class name="Customer" table="CUSTOMER">
+<composite-id name="id" class="CustomerId">
+<key-property name="countryCode" type="string" column="COUNTRY_CODE" />
+<key-property name="idCardNo" type="string" column="ID_CARD_NO"/>
+</composite-id>
+<property name="firstName" type="string" column="FIRST_NAME" />
+<property name="lastName" type="string" column="LAST_NAME" />
+<property name="address" type="string" column="ADDRESS" />
+<property name="email" type="string" column="EMAIL" />
+</class>
+</hibernate-mapping>
+
+
+

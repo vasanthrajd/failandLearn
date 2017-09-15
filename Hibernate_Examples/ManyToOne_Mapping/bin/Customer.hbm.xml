@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.training">
+  <class name="Customer" table="mapcustomer"> 
+  <id name="cust_id" column="cust_id" type="int">
+  <generator class="assigned"></generator>
+  </id>
+  <property name="cust_name" column=""></property>
+   <many-to-one name="cust_address" class="com.training.Address" column="cust_address" cascade="all" not-null="true" />
+   
+  </class>
+  
+  
+</hibernate-mapping>

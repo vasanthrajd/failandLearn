@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.training.pojos">
+  <class name="Person" table="person">
+  <id  name="personId" column="personId" type="integer">
+  <generator class="assigned"></generator>
+    </id>
+  <property name="personName" type="string" column="personName"></property>
+  
+  <joined-subclass name="Employee" extends="Person" table="employee"> 
+  	<key column="personId"></key>
+     <property name="deptName" type="string" column="deptName"></property>
+    </joined-subclass>
+    <joined-subclass name="Manager" extends="Person" table="Manager">
+     <key column="personId"></key>
+     <property name="location" column="location" type="string"></property>
+    </joined-subclass>
+  </class>
+</hibernate-mapping>
+

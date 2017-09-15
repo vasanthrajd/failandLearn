@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Apr 19, 2013 2:32:55 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.training.Trainer" table="TRAINER">
+        <id name="trainerCode" type="int">
+            <column name="TRAINERCODE" />
+            <generator class="assigned" />
+        </id>
+        <set name="participants" table="TRNR_PARTI" lazy="false">
+            <key>
+                <column name="TRAINERCODE" />
+            </key>
+            <element type="java.lang.String">
+                <column name="PARTICIPANTS" />
+            </element>
+        </set>
+        <property name="subject" type="java.lang.String">
+            <column name="SUBJECT" />
+        </property>
+    </class>
+</hibernate-mapping>

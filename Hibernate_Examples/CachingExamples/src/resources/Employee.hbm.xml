@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jan 24, 2013 4:20:53 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.training.secondlevel.Employee" table="VEMPLOYEE">
+          <cache usage="read-only"/>
+        <id name="empId" type="int"  unsaved-value="100">
+            <column name="EMPID" />
+            <generator class="increment" />
+        </id>
+      
+        <property name="empName" type="java.lang.String">
+            <column name="EMPNAME" />
+        </property>
+        <property name="salary" type="double">
+            <column name="SALARY" />
+        </property>
+    </class>
+</hibernate-mapping>

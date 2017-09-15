@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-configuration xmlns="urn:jboss:hibernate-deployer:1.0">
+ <session-factory name="java:/hibernate/MySessFact"
+ bean="jboss.test.har:service=Hibernate,testcase=TimersUnitTestCase">
+ <property name="datasourceName">java:/mysqlDS</property>
+ <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+ </session-factory>
+ </hibernate-configuration>

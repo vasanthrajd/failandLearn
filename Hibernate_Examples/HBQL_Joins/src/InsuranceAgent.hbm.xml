@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.training">
+  <class name="InsuranceAgent">
+  <id name="cust_id" column="cust_id">
+   <generator class="increment"></generator>
+  </id>
+  
+  <property name="cust_name" column="cust_name" type="string"></property>
+ 
+  
+  <bag name="pol_code" inverse="true">
+        <key column="pol_code"/>
+        <one-to-many class="PolicyCodes"/>
+        </bag>
+  </class>
+  
+ 
+      
+
+  
+</hibernate-mapping>

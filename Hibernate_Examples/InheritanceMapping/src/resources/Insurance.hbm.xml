@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.training.tab.perclass">
+  <class name="Insurance" table="insurance">
+  <id name="policyNumber" column="policyNumber" type="int">
+  <generator class="assigned"></generator>
+  </id>
+  <discriminator column="policyType" type="string"></discriminator>
+  <property name="policyHolderName" type="string" column="policyHolderName"></property>
+    
+    
+  	<subclass name="LifeInsurance" discriminator-value="LIFE">
+ 	   <property name="premiumAmount" type="double" column="premiumAmount"></property>
+    	<property name="paymentMode" type="string" column="paymentMode"></property>
+    </subclass>
+   </class>
+</hibernate-mapping>
+	

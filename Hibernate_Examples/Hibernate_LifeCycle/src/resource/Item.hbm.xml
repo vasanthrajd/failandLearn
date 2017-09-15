@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Jun 6, 2013 11:33:47 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.training.domains.Item" table="ITEM">
+        <id name="itemNumber" type="int">
+            <column name="ITEMNUMBER" />
+            <generator class="assigned" />
+        </id>
+        <property name="itemName" type="java.lang.String">
+            <column name="ITEMNAME" />
+        </property>
+        <property name="ratePerUnit" type="double">
+            <column name="RATEPERUNIT" />
+        </property>
+    </class>
+</hibernate-mapping>
