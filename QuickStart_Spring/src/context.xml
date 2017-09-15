@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd" default-destroy-method="destroy" default-init-method="init">
+
+<bean id="custBean" class="com.training.s1.Customer" lazy-init="true" >
+   <property name="customerNumber" value="101"></property>
+   <property name="customerHandphone" value="12345"></property>
+        <property name="customerName" value="#{custBean1.getCustomerName()}"></property>
+	<property name="addr" ref="addr1"></property>
+</bean>   
+<bean id="custBean1" class="com.training.s1.Customer" p:customerName="Thiyagu" p:customerNumber="89089" p:customerHandphone="16923779" p:addr-ref="addr1" />
+<bean name="addr1" class="com.training.s1.Address">
+    <property name="addLine1" value="Gandhi Street"></property>
+    <property name="addLine2" value="Nehru Street"></property>
+    <property name="city" value="Chennai"></property>
+    <property name="pinCode" value="600096"></property>
+    
+</bean>
+<bean name="invBean" class="com.training.s1.Invoicelist">
+    <property name="li">
+        <list>
+            <ref bean="custBean"/>
+            <ref bean="custBean1"/>
+        </list>
+    </property>
+	
+</bean>
+<!--  it is for the mandotary dependency we need to use the constructor based dependency injection, error will be thrown in the .xml file only-->
+<bean id="item1" class="com.training.s1.Item" init-method="init" destroy-method="destroy"> 
+  <constructor-arg>
+      <value>101</value>
+  </constructor-arg>
+  <constructor-arg>
+      <value>TV</value>
+  </constructor-arg>
+   <constructor-arg>
+      <value>34999</value>
+  </constructor-arg>
+ </bean>
+ <!--  for the -->
+ <bean id="item2" class="com.training.s1.Item" init-method="init" destroy-method="destroy"> 
+  <constructor-arg type="int" value="9999">
+      
+  </constructor-arg>
+  <constructor-arg type="java.lang.String" value="PHABLET">
+      
+  </constructor-arg>
+   <constructor-arg type="double" value="999999.9999">
+     </constructor-arg>
+  </bean>
+  
+  <bean id="item3" class="com.training.s1.Item" init-method="init" destroy-method="destroy"> 
+  <constructor-arg index="0" value="102">
+      
+  </constructor-arg>
+  <constructor-arg index="1"  value="ipad">
+      
+  </constructor-arg>
+   <constructor-arg index="2"  value="1020.90">
+     </constructor-arg>
+  </bean>
+  
+  <bean id="item4" class="com.training.s1.Item"  init-method="init" destroy-method="destroy" c:itemNumber="104" c:itemName="happy" c:ratePerUnit="2340.00"/>
+ <bean id="item5" class="com.training.s1.Invoicemap">
+     <property name="cust" ref="custBean">
+         
+     </property>
+     <property name="mapId">
+         <map >
+             <entry key="101" value-ref="item1"> </entry>
+			<entry key="102" value-ref="item2"> </entry>
+                 <entry key="103" value-ref="item3"> </entry>
+            <entry key="104" value-ref="item4"> </entry>
+                 
+        
+           </map>
+     </property>
+         
+    
+ </bean>      
+  
+
+</beans>
+

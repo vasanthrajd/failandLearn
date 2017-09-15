@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<bean id="inv3" class="com.training.s1.Invoicemap" autowire="constructor" />
+<bean id="inv2" class="com.training.s1.Invoicemap" autowire="byName" />
+
+<bean id="cust" class="com.training.s1.Customer" lazy-init="true" >
+   <property name="customerNumber" value="101"></property>
+   <property name="customerHandphone" value="12345"></property>
+        <property name="customerName" value="#{cust1.a[2]}"></property>
+        <property name="a">
+        <list> 
+        <value>vasanth</value>
+        <value>thiyagu</value>
+        <value>arul</value> 
+        </list>
+        
+        </property>
+	<property name="addr" ref="addr1"></property>
+	
+</bean>   
+<bean name="addr1" class="com.training.s1.Address">
+    <property name="addLine1" value="Gandhi Street"></property>
+    <property name="addLine2" value="Nehru Street"></property>
+    <property name="city" value="Chennai"></property>
+    <property name="pinCode" value="600096"></property>
+    
+</bean>
+<bean id="cust1" class="com.training.s1.Customer" lazy-init="true" >
+   <property name="customerNumber" value="101"></property>
+   <property name="customerHandphone" value="12345"></property>
+        <property name="customerName" value="Rudy Rudy."></property>
+        <property name="a">
+        <list> 
+        <value>vasanth</value>
+        <value>thiyagu</value>
+        <value>arul</value> 
+        </list>
+        
+        </property>
+	<property name="addr" ref="addr1"></property>
+</bean>   
+<bean name="addr2" class="com.training.s1.Address">
+    <property name="addLine1" value="Gandhi Street"></property>
+    <property name="addLine2" value="Nehru Street"></property>
+    <property name="city" value="Chennai"></property>
+    <property name="pinCode" value="600096"></property>
+    
+</bean>
+
+
+</beans>
